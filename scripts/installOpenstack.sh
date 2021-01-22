@@ -1,21 +1,23 @@
 #!/bin/bash
 
-
 # install Openstack
+
+# fixer ip statique via ifconfig
+
+adresse="$(dig +short myip.opendns.com @resolver1.opendns.com)"
+ifconfig eth0 $adresse
+systemctl restart network
+
+#touch /etc/sysconfig/network-scripts/ifcfg-eth0
+#echo "BOOTPROTO=none" >> /etc/sysconfig/network-scripts/ifcfg-eth0
+#echo "ONBOOT=yes" >> /etc/sysconfig/network-scripts/ifcfg-eth0
+#echo "PREFIX=24" >> /etc/sysconfig/network-scripts/ifcfg-eth0
+#echo "IPADDR=$adresse" >> /etc/sysconfig/network-scripts/ifcfg-eth0
+
 
 # quel OS ?
 if [ -n "$(command -v yum)" ]
 then #yum - centOS packstack
-	
-	# fixer ip statique
-	adresse="$(dig +short myip.opendns.com @resolver1.opendns.com)"
-	touch /etc/sysconfig/network-scripts/ifcfg-eth0
-	echo "DEVICE=eth0" >> /etc/sysconfig/network-scripts/ifcfg-eth0
-	echo "BOOTPROTO=none" >> /etc/sysconfig/network-scripts/ifcfg-eth0
-	echo "ONBOOT=yes" >> /etc/sysconfig/network-scripts/ifcfg-eth0
-	echo "PREFIX=24" >> /etc/sysconfig/network-scripts/ifcfg-eth0
-	echo "IPADDR=$adresse" >> /etc/sysconfig/network-scripts/ifcfg-eth0
-	systemctl restart network
 
 	# cassage du firewall
 	systemctl stop firewalld
@@ -67,7 +69,7 @@ else #apt - ubuntu devstack ?
 	cd
 	git clone https://git.openstack.org/openstack-dev/devstack
 	cd devstack
-	git checkout stable/ocata
+	git checkout stable/train
 
 	# configurations minimales pour pouvoir utiliser le script d'installation
 	
@@ -80,7 +82,7 @@ else #apt - ubuntu devstack ?
 	echo "GIT_BASE=https://git.openstack.org" >> local.conf
 	echo "\n" >> local.conf
 	# activer d'autres puglins si besoin ?
-	echo "enable_plugin heat https://git.openstack.org/openstack/heat stable/ocata" >> local.conf
+	echo "enable_plugin heat https://git.openstack.org/openstack/heat stable/train" >> local.conf
 
 	# lancer l'installation, nettoyage si échec
 	./stack.sh || ./clean.sh

@@ -49,7 +49,7 @@ fi
 # installation openstack
 if [ "$1" = "openstack" ]
 then
-	./installOpenstack.sh
+	sudo ./installOpenstack.sh
 fi
 
 # installation git
