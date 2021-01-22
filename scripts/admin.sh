@@ -9,9 +9,9 @@ if [ "$#" -lt 2 ]
 then
 	echo "mauvaise utilisation de $0"
         echo "Utilisation : 'admin <option>'"
-	echo "openstack"
-	echo "git"
-	echo "jenkins"
+	echo "installOpenstack"
+	echo "installGit"
+	echo "installJenkins"
 	echo "packageInstall"
 	echo "sysUpdate"
 	echo "packageList"
@@ -49,19 +49,19 @@ fi
 # installation openstack
 if [ "$1" -eq "openstack" ]
 then
-	./openstack.sh
+	./installOpenstack.sh
 fi
 
 # installation git
 if [ "$1" -eq "git" ]
 then
-	./git.sh
+	./installGit.sh
 fi
 
 #installation jenkins
 if [ "$1" -eq "jenkins" ]
 then
-	./jenkins.sh
+	./installJenkins.sh
 fi
 
 
