@@ -49,66 +49,66 @@ fi
 # installation openstack
 if [ "$1" -eq "openstack" ]
 then
-echo "Installation Openstack"
+	./openstack.sh
 fi
 
 # installation git
 if [ "$1" -eq "git" ]
 then
-echo "Installation git"
+	./git.sh
 fi
 
 #installation jenkins
 if [ "$1" -eq "jenkins" ]
 then
-echo "jenkins"
+	./jenkins.sh
 fi
 
 
 #installation de package
 if [ "$1" -eq "packageInstall" ]
 then
-echo "packageInstall"
+	./packageInstall.sh
 fi
 
 
 #MaJ du system
 if [ "$1" -eq "sysUpdate" ]
 then
-echo "sysUpdate"
+	./sysUpdate.sh
 fi
 
 
 #listage des paquets
 if [ "$1" -eq "packageList" ]
 then
-echo "packageList"
+	./packageList.sh
 fi
 
 
 #suppression de package
 if [ "$1" -eq "packageDel" ]
 then
-echo "packageDel"
+	./packageDel.sh
 fi
 
 
 #ajout d'un utilisateur
 if [ "$1" -eq "userAdd" ]
 then
-echo "userAdd"
+	./userAdd.sh
 fi
 
 #ajout d'un groupe
 if [ "$1" -eq "groupAdd" ]
 then
-echo "groupAdd"
+	./groupAdd.sh
 fi
 
 #liste les groupes d'un utilisateur
 if [ "$1" -eq "groupList" ]
 then
-echo "groupList"
+	./groupList.sh
 fi
 
 # status d'un service
