@@ -3,13 +3,13 @@
 
 # switch ON/OFF d'un service
 
-read -p "Service à toggle :" service
+#read -p "Service à toggle :" service
 
-if [ "$(systemctl is-active $service)" = "active" ] 
+if [ "$(systemctl is-active $1)" = "active" ] 
 then
-	systemctl stop $service && echo "$service stoppé"
+	systemctl stop $1 && echo "$1 stoppé"
 else
-	systemctl start $service && echo "$service démarré"
+	systemctl start $1 && echo "$1 démarré"
 fi
 
 

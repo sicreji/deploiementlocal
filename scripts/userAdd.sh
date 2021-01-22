@@ -3,7 +3,7 @@
 
 # ajoute un utilisateur
 
-read -p "nom de l'utilisateur a ajouter :" userName
-useradd $userName
+#read -p "nom de l'utilisateur a ajouter :" userName
+useradd $1
 
 

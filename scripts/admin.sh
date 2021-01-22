@@ -94,45 +94,80 @@ fi
 #suppression de package
 if [ "$1" = "packageDel" ]
 then
-	./packageDel.sh
+	if [ "$#" -e 2 ]
+	then
+		./packageDel.sh $2
+	else
+		echo "Argument manquant pour la commande packageDel."
+	fi
 fi
 
 
 #ajout d'un utilisateur
 if [ "$1" = "userAdd" ]
 then
-	./userAdd.sh
+	if [ "$#" -e 2 ]
+	then
+		./userAdd.sh $2
+	else
+		echo "Argument manquant pour la commande userAdd."
+	fi
 fi
 
 #ajout d'un groupe
 if [ "$1" = "groupAdd" ]
 then
-	./groupAdd.sh
+	if [ "$#" -e 2 ]
+	then
+		./groupAdd.sh $2
+	else
+		echo "Argument manquant pour la commande groupAdd."
+	fi
 fi
 
 #liste les groupes d'un utilisateur
 if [ "$1" = "groupList" ]
 then
-	./groupList.sh
+	if [ "$#" -e 2 ]
+	then
+		./groupList.sh $2
+	else
+		echo "Argument manquant pour la commande groupList."
+	fi
 fi
 
 # status d'un service
 if [ "$1" = "serviceStatus" ]
 then
-	./serviceStatus.sh
+	if [ "$#" -e 2 ]
+	then
+		./serviceStatus.sh $2
+	else
+		echo "Argument manquant pour la commande serviceStatus."
+	fi
 fi
 
 #service restart
 if [ "$1" = "serviceRestart" ]
 then
-	./serviceRestart.sh
+	if [ "$#" -e 2 ]
+	then
+		./serviceRestart.sh $2
+	else
+		echo "Argument manquant pour la commande serviceRestart."
+	fi
 fi
 
 
 #service toggle
 if [ "$1" = "serviceToggle" ]
 then
-	./serviceToggle.sh
+	if [ "$#" -e 2 ]
+	then
+		./serviceToggle.sh $2
+	else
+		echo "Argument manquant pour la commande serviceToggle."
+	fi
 fi
 
 
