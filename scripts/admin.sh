@@ -8,7 +8,7 @@
 if [ "$#" -lt 1 ]
 then
 	echo "mauvaise utilisation de $0"
-        echo "Utilisation : './admin <option>'"
+        echo "Utilisation : './admin <option> (<p1>, <p2>, ... )'"
 	echo "openstack"
 	echo "git"
 	echo "jenkins"
@@ -28,7 +28,7 @@ fi
 # --help
 if [ "$1" = "help" ]
 then
-        echo "Utilisation : './admin <option>'"
+        echo "Utilisation : './admin <option> (<p1>, <p2>, ... )'"
 	echo "openstack"
 	echo "git"
 	echo "jenkins"
@@ -49,7 +49,7 @@ fi
 # installation openstack
 if [ "$1" = "openstack" ]
 then
-	sudo ./installOpenstack.sh
+	sudo ./installOpenstack.sh	#meh
 fi
 
 # installation git
@@ -68,7 +68,12 @@ fi
 #installation de package
 if [ "$1" = "package" ]
 then
-	./packageInstall.sh
+	if [ "$#" -e 2 ]
+	then
+		./packageInstall.sh $2
+	else
+		echo "Argument manquant pour la commande package."
+	fi
 fi
 
 
