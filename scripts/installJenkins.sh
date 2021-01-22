@@ -19,10 +19,11 @@ else #apt - debian
 	apt-get install jenkins -y
 fi
 
+#PATH shenanigans
 javapath=type -p java
 echo "PATH=$path_java:$PATH" >> /etc/bash.bashrc
 source /etc/bash.bashrc
 systemctl restart jenkins
 
 
-#PATH shenanigans
+
