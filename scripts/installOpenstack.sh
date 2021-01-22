@@ -8,12 +8,13 @@ if [command -v yum]
 then #yum - centOS packstack
 	
 	# fixer ip statique
+	adresse="$(dig +short myip.opendns.com @resolver1.opendns.com)"
 	touch /etc/sysconfig/network-scripts/ifcfg-eth0
 	echo "DEVICE=eth0" >> /etc/sysconfig/network-scripts/ifcfg-eth0
 	echo "BOOTPROTO=none" >> /etc/sysconfig/network-scripts/ifcfg-eth0
 	echo "ONBOOT=yes" >> /etc/sysconfig/network-scripts/ifcfg-eth0
 	echo "PREFIX=24" >> /etc/sysconfig/network-scripts/ifcfg-eth0
-	echo "IPADDR=" >> /etc/sysconfig/network-scripts/ifcfg-eth0
+	echo "IPADDR=$adresse" >> /etc/sysconfig/network-scripts/ifcfg-eth0
 	systemctl restart network
 
 	# cassage du firewall
