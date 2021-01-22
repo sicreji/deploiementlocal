@@ -17,10 +17,12 @@ else #apt - debian
 	sudo sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ > \/etc/apt/sources.list.d/jenkins.list'
 	apt-get install default-jre -y	
 	apt-get install jenkins -y
-	javapath=type -p java
-	echo "PATH=$path_java:$PATH" >> /etc/bash.bashrc
-	source /etc/bash.bashrc
-	systemctl restart jenkins
 fi
+
+javapath=type -p java
+echo "PATH=$path_java:$PATH" >> /etc/bash.bashrc
+source /etc/bash.bashrc
+systemctl restart jenkins
+
 
 #PATH shenanigans
