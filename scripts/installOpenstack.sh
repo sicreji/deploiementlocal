@@ -4,7 +4,7 @@
 # install Openstack
 
 # quel OS ?
-if [command -v yum]
+if [ -n "$(command -v yum)" ]
 then #yum - centOS packstack
 	
 	# fixer ip statique

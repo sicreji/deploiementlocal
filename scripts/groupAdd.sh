@@ -3,6 +3,6 @@
 
 # ceci est un commentaire
 
-read -p groupName "nom du groupe a créer :"
+read -p "nom du groupe a créer :" groupName
 groupadd $groupName
 

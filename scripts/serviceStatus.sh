@@ -3,5 +3,5 @@
 
 # affiche le status d'un service
 
-read -p service "Service à scruter :"
+read -p "Service à scruter :" service
 systemctl status $service

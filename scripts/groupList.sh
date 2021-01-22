@@ -3,6 +3,6 @@
 
 # liste les groupes d'un utilisateur
 
-read -p userName "Nom de l'utilisateur:"
+read -p "Nom de l'utilisateur:" userName
 echo "Liste de ses groupes :"
 groups $userName

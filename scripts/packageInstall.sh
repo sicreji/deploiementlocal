@@ -3,10 +3,9 @@
 
 # installation d'un package en entree
 
-read -p package "Package a installer :"
-
+read -p "Package a installer :" package
 # quel OS ?
-if [command -v yum]
+if [ -n "$(command -v yum)" ]
 then #yum
 	yum install $package -y
 else #apt

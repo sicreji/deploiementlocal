@@ -4,7 +4,7 @@
 # installation de git
 
 # quel OS ?
-if [command -v yum]
+if [ -n "$(command -v yum)" ]
 then #yum
 	yum install git-all -y
 else #apt

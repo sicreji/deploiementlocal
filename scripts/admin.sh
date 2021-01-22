@@ -8,11 +8,11 @@
 if [ "$#" -lt 1 ]
 then
 	echo "mauvaise utilisation de $0"
-        echo "Utilisation : 'admin <option>'"
-	echo "installOpenstack"
-	echo "installGit"
-	echo "installJenkins"
-	echo "packageInstall"
+        echo "Utilisation : './admin <option>'"
+	echo "openstack"
+	echo "git"
+	echo "jenkins"
+	echo "package"
 	echo "sysUpdate"
 	echo "packageList"
 	echo "packageDel"
@@ -28,11 +28,11 @@ fi
 # --help
 if [ "$1" = "help" ]
 then
-        echo "Utilisation : 'admin <option>'"
+        echo "Utilisation : './admin <option>'"
 	echo "openstack"
 	echo "git"
 	echo "jenkins"
-	echo "packageInstall"
+	echo "package"
 	echo "sysUpdate"
 	echo "packageList"
 	echo "packageDel"
@@ -66,7 +66,7 @@ fi
 
 
 #installation de package
-if [ "$1" = "packageInstall" ]
+if [ "$1" = "package" ]
 then
 	./packageInstall.sh
 fi

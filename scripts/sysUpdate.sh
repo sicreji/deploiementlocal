@@ -3,7 +3,7 @@
 
 # mise à jour générale du system
 
-if [command -v yum]
+if [ -n "$(command -v yum)" ]
 then # yum - centOS 7-
 
 	yum check-update -y

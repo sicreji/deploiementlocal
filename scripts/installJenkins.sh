@@ -5,7 +5,7 @@
 
 
 # quel OS ?
-if [command -v yum]
+if [ -n "$(command -v yum)" ]
 then #yum - centOS 
 
 	yum install default-jre
@@ -20,10 +20,8 @@ else #apt - debian
 fi
 
 #PATH shenanigans
-javapath=type -p java
+javapath=$(type -p java);
 echo "PATH=$path_java:$PATH" >> /etc/bash.bashrc
 source /etc/bash.bashrc
 systemctl restart jenkins
-
-
 

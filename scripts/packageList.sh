@@ -4,7 +4,7 @@
 # liste les package installés sur la machine
 
 # quel OS ?
-if [command -v yum]
+if [ -n "$(command -v yum)" ]
 then #yum - centOS 
 
 	yum list installed
