@@ -4,5 +4,5 @@
 # liste les groupes d'un utilisateur
 
 read -p "Nom de l'utilisateur:" userName
-echo "Liste de ses groupes :"
+echo "Liste des groupes de $userName :"
 groups $userName

@@ -5,4 +5,5 @@
 
 read -p "nom du groupe a créer :" groupName
 groupadd $groupName
+echo "$groupName créé"
 
