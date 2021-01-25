@@ -68,7 +68,7 @@ fi
 #installation de package
 if [ "$1" = "package" ]
 then
-	if [ "$#" -e 2 ]
+	if [ "$#" -eq 2 ]
 	then
 		./packageInstall.sh $2
 	else
@@ -94,7 +94,7 @@ fi
 #suppression de package
 if [ "$1" = "packageDel" ]
 then
-	if [ "$#" -e 2 ]
+	if [ "$#" -eq 2 ]
 	then
 		./packageDel.sh $2
 	else
@@ -106,7 +106,7 @@ fi
 #ajout d'un utilisateur
 if [ "$1" = "userAdd" ]
 then
-	if [ "$#" -e 2 ]
+	if [ "$#" -eq 2 ]
 	then
 		./userAdd.sh $2
 	else
@@ -117,7 +117,7 @@ fi
 #ajout d'un groupe
 if [ "$1" = "groupAdd" ]
 then
-	if [ "$#" -e 2 ]
+	if [ "$#" -eq 2 ]
 	then
 		./groupAdd.sh $2
 	else
@@ -128,7 +128,7 @@ fi
 #liste les groupes d'un utilisateur
 if [ "$1" = "groupList" ]
 then
-	if [ "$#" -e 2 ]
+	if [ "$#" -eq 2 ]
 	then
 		./groupList.sh $2
 	else
@@ -139,7 +139,7 @@ fi
 # status d'un service
 if [ "$1" = "serviceStatus" ]
 then
-	if [ "$#" -e 2 ]
+	if [ "$#" -eq 2 ]
 	then
 		./serviceStatus.sh $2
 	else
@@ -150,7 +150,7 @@ fi
 #service restart
 if [ "$1" = "serviceRestart" ]
 then
-	if [ "$#" -e 2 ]
+	if [ "$#" -eq 2 ]
 	then
 		./serviceRestart.sh $2
 	else
@@ -162,7 +162,7 @@ fi
 #service toggle
 if [ "$1" = "serviceToggle" ]
 then
-	if [ "$#" -e 2 ]
+	if [ "$#" -eq 2 ]
 	then
 		./serviceToggle.sh $2
 	else
