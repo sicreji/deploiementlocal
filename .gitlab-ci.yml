@@ -1,9 +1,15 @@
 
 stages:
   - packageInstall
-  - test
-  - fail
-  - success
+  - testPackage
+  - failPackage
+  - successPackage
+  - userAdd
+  - testUserAdd
+  - failUserAdd
+  - successUserAdd
+
+# bloc packageInstall
 
 packageInstall:
   stage: packageInstall
@@ -16,8 +22,8 @@ packageInstall:
       - /usr/local/bin/nano
       - /builds/sicreji/deploiementlocal/scripts
 
-test:
-  stage: test
+testPackage:
+  stage: testPackage
 
   script:
     - cd /builds/sicreji/deploiementlocal/scripts
@@ -26,16 +32,57 @@ test:
   when: on_success
 
 
-fail:
-  stage: fail
+failPackage:
+  stage: failPackage
   script:
-    - echo "Echec du build !"
+    - echo "Echec du test d'installation d'un package"
   when: on_failure
 
-success:
-  stage: success
+successPackage:
+  stage: successPackage
   script:
-    - echo "Réussite du build !"
+    - echo "Réussite du test d'installation d'un package"
   when: on_success
+
+# bloc userAdd
+
+userAdd:
+  stage: userAdd
+  script:
+    - cd /builds/sicreji/deploiementlocal/scripts
+    - echo "Execution du script ... "
+    - ./admin.sh userAdd toto
+    - cat /etc/passwd | grep toto >> testUser
+
+  artifacts:
+    paths:
+      - /builds/sicreji/deploiementlocal/scripts
+
+testUserAdd:
+  stage: testUserAdd
+
+  script:
+    - cd /builds/sicreji/deploiementlocal/scripts
+    - test -s testUser
+
+  when: on_success
+
+failUserAdd:
+  stage: failUserAdd
+  script:
+    - echo "Echec du test d'ajout d'un utilisateur"
+  when: on_failure
+
+successUserAdd:
+  stage: successUserAdd
+  script:
+    - echo "Réussite du test d'ajout d'un utilisateur"
+  when: on_success
+
+
+
+
+
+
 
 
