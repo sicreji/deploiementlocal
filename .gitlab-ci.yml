@@ -1,0 +1,41 @@
+
+stages:
+  - packageInstall
+  - test
+  - fail
+  - success
+
+packageInstall:
+  stage: packageInstall
+  script:
+    - cd deploiementlocal/scripts/
+    - echo "Execution du script ... "
+    - ./admin.sh package git >> filetest
+  artifacts:
+    paths:
+      - /usr/local/bin/git
+      - ~/deploiementlocal
+
+test:
+  stage: test
+
+  script:
+    - cd deploiementlocal/scripts/
+    - test -s filetest
+
+  when: on_success
+
+
+fail:
+  stage: fail
+  script:
+    - echo "Echec du build !"
+  when: on_failure
+
+success:
+  stage: success
+  script:
+    - echo "Réussite du build !"
+  when: on_success
+
+
