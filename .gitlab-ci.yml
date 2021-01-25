@@ -8,19 +8,19 @@ stages:
 packageInstall:
   stage: packageInstall
   script:
-    - cd /builds/sicreji/deploiementlocal/
+    - cd /builds/sicreji/deploiementlocal/scripts
     - echo "Execution du script ... "
     - ./admin.sh package nano >> filetest
   artifacts:
     paths:
       - /usr/local/bin/nano
-      - /builds/sicreji/deploiementlocal/
+      - /builds/sicreji/deploiementlocal/scripts
 
 test:
   stage: test
 
   script:
-    - cd /builds/sicreji/deploiementlocal/
+    - cd /builds/sicreji/deploiementlocal/scripts
     - test -s filetest
 
   when: on_success
